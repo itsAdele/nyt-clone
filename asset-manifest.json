@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/nyt-clone/static/css/main.0bf59a71.css",
+    "main.js": "/nyt-clone/static/js/main.d55b5e73.js",
+    "index.html": "/nyt-clone/index.html",
+    "main.0bf59a71.css.map": "/nyt-clone/static/css/main.0bf59a71.css.map",
+    "main.d55b5e73.js.map": "/nyt-clone/static/js/main.d55b5e73.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0bf59a71.css",
+    "static/js/main.d55b5e73.js"
+  ]
+}
