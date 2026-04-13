@@ -9,7 +9,7 @@ const Home = () => {
   const [category, setCategory] = useState('home');
   const API_KEY = "KiTiAWy5M33XQjzG3PFBx3NC0Pij1RLALpSGWF9zpGowVCbs";
 
-  // Caricamento Top Stories (Categorie della Navbar)
+  // Caricamento top stories
   useEffect(() => {
     if (category.includes("Risultati")) return;
 
@@ -21,7 +21,7 @@ const Home = () => {
 
    
 
-  // Funzione di Ricerca Articoli
+  // Ricerca  degli articoli
   const handleSearch = (term) => {
     const url = `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${term}&api-key=${API_KEY}`;
     
@@ -33,11 +33,10 @@ const Home = () => {
           let imagePath = "https://via.placeholder.com/300x200?text=No+Image";
 
           if (doc.multimedia && doc.multimedia.length > 0) {
-            // Cerchiamo l'immagine nel multimedia fornito dalla ricerca
+            
             const image = doc.multimedia[0];
             const url = image.url;
             
-            // Se l'URL non è completo, aggiungiamo il dominio base
             imagePath = url.startsWith('http') 
               ? url 
             : `https://static01.nyt.com/${url}`;
