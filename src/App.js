@@ -6,12 +6,14 @@ import './App.css';
 
 function App() {
   return (
-    <Router>
+    
+    <Router basename="/nyt-clone">
       <div className="container">
         <header className="header">
           <h1>The New York Times</h1>
           <nav className="navbar">
             <ul style={{display: 'flex', justifyContent: 'center', gap: '20px', listStyle: 'none'}}>
+              
               <li><Link to="/" className="nav-button" style={{textDecoration: 'none'}}>Home News</Link></li>
               <li><Link to="/books" className="nav-button" style={{textDecoration: 'none'}}>Best Sellers Books</Link></li>
             </ul>
