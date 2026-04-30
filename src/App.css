@@ -102,3 +102,29 @@ body {
 .article-card:hover .article-image {
   opacity: 0.9;
 }
+
+/* Stili specifici per la pagina Books */
+.books-title {
+  text-align: center; 
+  margin: 30px 0;
+}
+
+.status-message {
+  text-align: center;
+}
+
+.error-message {
+  text-align: center; 
+  color: red;
+}
+
+.book-description {
+  font-size: 13px; 
+  color: #666;
+}
+
+.buy-link {
+  margin-top: 10px; 
+  display: block; 
+  color: #567b95;
+}
