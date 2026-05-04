@@ -3,46 +3,37 @@ import { useFetch } from '../hooks/useFetch';
 import Navbar from '../components/Navbar';
 import ArticleCard from '../components/ArticleCard';
 import SearchBar from '../components/SearchBar';
+import { normalizeArticle } from '../utils/normalizeArticle';
 
 const Home = () => {
   const [category, setCategory] = useState('home');
   const [searchTerm, setSearchTerm] = useState('');
 
-  const endpoint = searchTerm 
-    ? `search/v2/articlesearch.json?q=${searchTerm}` 
+  const endpoint = searchTerm
+    ? `search/v2/articlesearch.json?q=${searchTerm}`
     : `topstories/v2/${category}.json`;
 
-  const { data: news, loading, error } = useFetch(endpoint);
+  const { data: news, loading, error } = useFetch(endpoint, normalizeArticle);
 
   return (
     <>
       <Navbar onCategoryChange={(cat) => {
         setCategory(cat);
-        setSearchTerm(''); 
+        setSearchTerm('');
       }} />
-      
+
       <SearchBar onSearch={(term) => setSearchTerm(term)} />
 
       <main className="news-grid">
         {loading && <p>Caricamento in corso...</p>}
-        {error && <p style={{color: 'red'}}>{error}</p>}
-        
-        {!loading && !error && news.map((article) => {
+        {error && <p className="error-message">{error}</p>}
 
-          const normalizedArticle = {
-            title: article.title || article.headline?.main, 
-            abstract: article.abstract || article.snippet,  
-            url: article.url || article.web_url,            
-            multimedia: article.multimedia
-          };
-
-          return (
-            <ArticleCard 
-              key={normalizedArticle.url || article.uri} 
-              article={normalizedArticle} 
-            />
-          );
-        })}
+        {!loading && !error && news.map((article) => (
+          <ArticleCard
+            key={article.url}
+            article={article}
+          />
+        ))}
       </main>
     </>
   );

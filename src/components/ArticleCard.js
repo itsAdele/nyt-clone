@@ -23,7 +23,7 @@ const ArticleCard = ({ article }) => {
       
       <div className="article-content">
         <h2 className="article-title">
-          <a href={article.url} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>
+          <a href={article.url} target="_blank" rel="noopener noreferrer" className="article-link">
             {article.title}
           </a>
         </h2>

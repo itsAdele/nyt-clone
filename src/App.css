@@ -24,12 +24,14 @@ body {
   font-weight: 900;
 }
 
-.navbar ul {
+.navbar ul,
+.nav-list {
   list-style: none;
   display: flex;
   justify-content: center;
-  gap: 15px;
+  gap: 20px;
   padding: 10px 0;
+  margin: 0;
   flex-wrap: wrap;
   border-bottom: 1px solid #e2e2e2;
 }
@@ -41,11 +43,22 @@ body {
   font-size: 12px;
   cursor: pointer;
   text-transform: uppercase;
+  text-decoration: none;
+  color: inherit;
   transition: color 0.2s;
 }
 
 .nav-button:hover {
-  color: #567b95; /* Colore tipico dei link NYT */
+  color: #567b95;
+}
+
+/* Footer */
+.footer {
+  margin-top: 50px;
+  padding: 30px;
+  border-top: 2px solid black;
+  text-align: center;
+  font-size: 14px;
 }
 
 /* Griglia degli Articoli (Responsive) */
@@ -62,6 +75,7 @@ body {
   flex-direction: column;
   border-bottom: 1px solid #e2e2e2;
   padding-bottom: 20px;
+  cursor: pointer;
 }
 
 .article-image {
@@ -71,10 +85,21 @@ body {
   margin-bottom: 10px;
 }
 
+.article-card:hover .article-image {
+  opacity: 0.9;
+}
+
 .article-title {
   font-size: 18px;
   line-height: 1.2;
   margin: 10px 0;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+}
+
+.article-title:hover {
+  color: #567b95;
+  text-decoration: underline;
 }
 
 .article-abstract {
@@ -83,29 +108,14 @@ body {
   line-height: 1.4;
 }
 
-/* Effetto sul titolo dell'articolo */
-.article-title {
-  cursor: pointer;
-  transition: color 0.2s ease-in-out;
-}
-
-.article-title:hover {
-  color: #567b95; 
-  text-decoration: underline;
-}
-
-/* Effetto sull'intera card  */
-.article-card {
-  cursor: pointer;
-}
-
-.article-card:hover .article-image {
-  opacity: 0.9;
+.article-link {
+  text-decoration: none;
+  color: inherit;
 }
 
 /* Stili specifici per la pagina Books */
 .books-title {
-  text-align: center; 
+  text-align: center;
   margin: 30px 0;
 }
 
@@ -114,17 +124,39 @@ body {
 }
 
 .error-message {
-  text-align: center; 
+  text-align: center;
   color: red;
 }
 
 .book-description {
-  font-size: 13px; 
+  font-size: 13px;
   color: #666;
 }
 
 .buy-link {
-  margin-top: 10px; 
-  display: block; 
+  margin-top: 10px;
+  display: block;
   color: #567b95;
+}
+
+/*stile per la barra di ricerca */
+.search-form {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.search-input {
+  padding: 10px;
+  width: 60%;
+  border: 1px solid #ccc;
+  font-family: 'Georgia', serif;
+}
+
+.search-button {
+  padding: 10px 20px;
+  cursor: pointer;
+  background: #000;
+  color: #fff;
+  border: none;
+  margin-left: 5px;
 }
